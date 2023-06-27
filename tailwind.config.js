@@ -3,8 +3,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        mynerve: "Mynerve",
-        "mynerve-bold": "Mynerve-bold",
+        raleway: ["Raleway", "arial"],
       },
       colors: {
         main: "#1e213a",

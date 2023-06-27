@@ -8,7 +8,7 @@ export function MainData() {
       <BackgroundClouds />
       <img src="/clear.png" className="w-32" alt="light-icon" />
       <div className="mt-4 text-white-faint lg:mt-10">
-        <h1 className="text-8xl text-center font-mynerve-bold">15°c</h1>
+        <h1 className="text-8xl text-center font-raleway font-bold">15°c</h1>
         <div className="mt-4 text-gray-faint">
           <h2 className="text-3xl text-center my-6">Shower</h2>
           <div className="flex justify-center gap-x-2 lg:mt-12">

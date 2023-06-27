@@ -1,4 +1,3 @@
-import { Header } from "./components/Header";
 import { Highlights } from "./components/Highlights";
 import { MainData } from "./components/MainData";
 import { NextDaysData } from "./components/NextDaysData";

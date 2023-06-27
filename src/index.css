@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Mynerve";
-  src: url("/fonts/raleway-regular.ttf");
+  font-family: "Raleway";
   font-weight: normal;
+  font-display: swap;
+  src: url("/fonts/raleway-regular.ttf");
 }
+
 @font-face {
-  font-family: "Mynerve-Bold";
-  src: url("/fonts/raleway-bold.ttf");
+  font-family: "Raleway";
   font-weight: bold;
+  font-display: swap;
+  src: url("/fonts/raleway-bold.ttf");
 }

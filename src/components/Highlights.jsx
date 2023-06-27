@@ -3,7 +3,7 @@ import { CardHighlight } from "./CardHighlight";
 export function Highlights() {
   return (
     <section className="bg-secondary px-4 pt-6 pb-12 lg:pb-0">
-      <h2 className="text-white-faint text-2xl text-center mb-6 font-mynerve-bold lg:mb-0 lg:text-xl">
+      <h2 className="text-white-faint text-2xl text-center mb-6 font-raleway font-bold lg:mb-0 lg:text-xl">
         Destacados de hoy
       </h2>
       <div className="sm:grid sm:grid-cols-2 sm:gap-x-8 lg:max-w-2xl mx-auto">
