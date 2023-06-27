@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Mynerve";
+  src: url("/fonts/raleway-regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Mynerve-Bold";
+  src: url("/fonts/raleway-bold.ttf");
+  font-weight: bold;
+}
