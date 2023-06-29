@@ -1,5 +1,7 @@
 import { createContext } from "preact";
 import { useContext, useState, useEffect } from "preact/hooks";
+const key = import.meta.env.VITE_API_KEY;
+const api = `https://api.weatherapi.com/v1/forecast.json?key=${key}&lang=es&days=6&`;
 
 export const LocationContext = createContext({
   handleLocation: () => {},
@@ -19,10 +21,14 @@ export const LocationProvider = ({ children }) => {
 
   useEffect(() => {
     setIsReady(false);
-    setTimeout(() => {
-      setLocationData({ city: location });
-      setIsReady(true);
-    }, 1500);
+
+    fetch(api.concat(`q=${location}`))
+      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+      .then((json) => {
+        console.log(json);
+        setLocationData(json);
+        setIsReady(true);
+      });
   }, [location]);
 
   const data = {
