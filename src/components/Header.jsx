@@ -44,7 +44,7 @@ function Header() {
         </nav>
       </header>
       <nav
-        className={`fixed p-4 lg:absolute bg-main w-screen lg:w-full h-full lg:h-screen top-0  lg:translate-y-0 left-0 transition-transform duration-700 ${
+        className={`fixed p-4 lg:absolute bg-main w-screen lg:w-full h-full lg:h-screen top-0  lg:translate-y-0 left-0 transition-transform duration-700 z-10 ${
           isOpen ? "" : "-translate-x-full"
         }`}
       >
