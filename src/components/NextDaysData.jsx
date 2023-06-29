@@ -12,7 +12,6 @@ function capitalizeFirstLetter(string) {
 export function NextDaysData() {
   const { locationData } = useLocation();
 
-  console.log();
   return (
     <section className="bg-secondary px-4 pb-16 pt-12 flex flex-wrap gap-x-8 justify-center lg:flex-nowrap gap-y-8 lg:flex lg:gap-y-0 lg:gap-x-4 sm:px-20 md:px-32 sm:gap-x-8 lg:px-0 lg:pb-2 lg:pt-16 lg:lg:max-w-2xl lg:mx-auto">
       {days.map((number) => {

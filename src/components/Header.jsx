@@ -4,12 +4,12 @@ import { CloseMenu } from "./CloseMenu";
 import { useLocation } from "../context/locationContext";
 import { PopularLocations } from "./PopularLocations";
 import { SearchLocation } from "./SearchLocation";
+import { CurrentPosition } from "./CurrentPosition";
 
 function Header() {
   const [isOpen, SetIsOpen] = useState(false);
   const { handleLocation, fetchingData } = useLocation();
 
-  console.log("Header", fetchingData);
   const handleButton = () => {
     SetIsOpen(!isOpen);
   };
@@ -34,13 +34,7 @@ function Header() {
               Buscar por lugar
             </button>
           </div>
-          <button className="w-10 h-10 p-1 rounded-full bg-gray-dark">
-            <img
-              className="w-full"
-              src="/location-icon.svg"
-              alt="location icon"
-            />
-          </button>
+          <CurrentPosition />
         </nav>
       </header>
       <nav
