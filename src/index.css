@@ -15,3 +15,9 @@
   font-display: swap;
   src: url("/fonts/raleway-bold.ttf");
 }
+
+@keyframes react-loading-skeleton {
+  100% {
+    transform: translateX(100%);
+  }
+}

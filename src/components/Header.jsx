@@ -1,10 +1,25 @@
+import { memo } from "preact/compat";
 import { useState } from "preact/hooks";
+import { CloseMenu } from "./CloseMenu";
+import { useLocation } from "../context/locationContext";
+import { PopularLocations } from "./PopularLocations";
+import { SearchLocation } from "./SearchLocation";
 
-export function Header() {
+function Header() {
   const [isOpen, SetIsOpen] = useState(false);
+  const { handleLocation, fetchingData } = useLocation();
 
+  console.log("Header", fetchingData);
   const handleButton = () => {
     SetIsOpen(!isOpen);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const location = event.target.location.value;
+    localStorage.setItem("location", location);
+    handleLocation(location);
   };
 
   return (
@@ -29,75 +44,16 @@ export function Header() {
         </nav>
       </header>
       <nav
-        className={`fixed p-4 lg:absolute bg-main w-screen lg:w-full h-full lg:h-screen top-0  lg:translate-y-0 left-0 ${
+        className={`fixed p-4 lg:absolute bg-main w-screen lg:w-full h-full lg:h-screen top-0  lg:translate-y-0 left-0 transition-transform duration-700 ${
           isOpen ? "" : "-translate-x-full"
         }`}
       >
-        <div className="flex justify-end">
-          <button className="text-white text-2xl rounded-full w-8 h-10">
-            <img
-              src="/public/cross-icon.svg"
-              className="w-full"
-              alt="cross icon"
-            />
-          </button>
-        </div>
-        <form className="flex mt-8 gap-x-2">
-          <div className="border-white-faint border items-center flex gap-x-2 px-2">
-            <label htmlFor="search" className="w-8">
-              <img src="/public/search-icon.svg" className="w-8" alt="" />
-            </label>
-            <input
-              id="search"
-              type="text"
-              className="bg-transparent outline-none w-full text-white-faint"
-              placeholder="Search Location"
-            />
-          </div>
-          <button type="submit" className="bg-blue-light text-white-faint p-2">
-            Search
-          </button>
-        </form>
-        <section className="mt-12">
-          <h4 className="text-white-faint font-bold text-lg">
-            Popular locations
-          </h4>
-          <div className="flex flex-col gap-y-4 pt-4 text-base sm:flex-row sm:flex-wrap sm:gap-x-4 lg:flex-col">
-            <button className="border-gray-faint border text-white-faint p-2 flex justify-between max-w-sm ">
-              Barcelona
-              <img
-                src="/public/arrow-right-icon.svg"
-                className="w-4 ml-4"
-                alt="arrow icon"
-              />
-            </button>
-            <button className="border-gray-faint border text-white-faint p-2 flex justify-between max-w-sm">
-              Londres
-              <img
-                src="/public/arrow-right-icon.svg"
-                className="w-4 ml-4"
-                alt="arrow icon"
-              />
-            </button>
-            <button className="border-gray-faint border text-white-faint p-2 flex justify-between max-w-sm">
-              Miami
-              <img
-                src="/public/arrow-right-icon.svg"
-                className="w-4 ml-4"
-                alt="arrow icon"
-              />
-            </button>
-            <button className="border-gray-faint border text-white-faint p-2 flex justify-between max-w-sm">
-              Buenos Aires
-              <img
-                src="/public/arrow-right-icon.svg"
-                className="w-4 ml-4"
-                alt="arrow icon"
-              />
-            </button>
-          </div>
-        </section>
+        <CloseMenu closeFunction={handleButton} />
+        <SearchLocation handleSubmit={handleSubmit} />
+        <PopularLocations />
       </nav>
     </>
   );
 }
+
+export default memo(Header);
