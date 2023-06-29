@@ -4,6 +4,7 @@ import Header from "./Header";
 import Skeleton from "./Skeleton";
 
 const today = new Date().toLocaleDateString();
+
 export function MainData() {
   const { locationData } = useLocation();
   const current = locationData.current;
