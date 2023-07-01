@@ -8,7 +8,7 @@ import { CurrentPosition } from "./CurrentPosition";
 
 function Header() {
   const [isOpen, SetIsOpen] = useState(false);
-  const { handleLocation, fetchingData } = useLocation();
+  const { handleLocation } = useLocation();
 
   const handleButton = () => {
     SetIsOpen(!isOpen);
@@ -18,7 +18,6 @@ function Header() {
     event.preventDefault();
 
     const location = event.target.location.value;
-    localStorage.setItem("location", location);
     handleLocation(location);
   };
 
