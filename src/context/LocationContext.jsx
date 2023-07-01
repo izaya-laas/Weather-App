@@ -29,8 +29,6 @@ export const LocationProvider = ({ children }) => {
     fetch(api.concat(`q=${location}`))
       .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then((json) => {
-        console.log(json);
-
         localStorage.setItem("location", location);
         setLocationData(json);
         setIsReady(true);
