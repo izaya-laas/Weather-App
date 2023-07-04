@@ -7,11 +7,7 @@ export function SearchLocation({ handleSubmit }) {
       <form className="flex mt-8 gap-x-2" onSubmit={handleSubmit}>
         <div className="border-white-faint border items-center flex gap-x-2 px-2">
           <label htmlFor="search" className="w-8">
-            <img
-              src="/public/search-icon.svg"
-              className="w-8"
-              alt="Search icon"
-            />
+            <img src="/search-icon.svg" className="w-8" alt="Search icon" />
           </label>
           <input
             name="location"

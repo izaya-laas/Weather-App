@@ -5,7 +5,7 @@ export function CloseMenu({ closeFunction }) {
         onClick={closeFunction}
         className="text-white text-2xl rounded-full w-8 h-10"
       >
-        <img src="/public/cross-icon.svg" className="w-full" alt="cross icon" />
+        <img src="/cross-icon.svg" className="w-full" alt="cross icon" />
       </button>
     </div>
   );

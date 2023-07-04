@@ -13,7 +13,7 @@ export function PopularLocation({ location }) {
     >
       {location}
       <img
-        src="/public/arrow-right-icon.svg"
+        src="/arrow-right-icon.svg"
         className="w-4 ml-4"
         alt="arrow icon"
       />
