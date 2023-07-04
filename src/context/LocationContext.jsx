@@ -1,7 +1,6 @@
 import { createContext } from "preact";
 import { useContext, useState, useEffect } from "preact/hooks";
-const key = import.meta.env.VITE_API_KEY;
-const api = `https://api.weatherapi.com/v1/forecast.json?key=${key}&lang=es&days=6&`;
+import api from "../api/api.js";
 
 export const LocationContext = createContext({
   handleLocation: () => {},
