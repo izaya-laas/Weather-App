@@ -12,29 +12,32 @@ const initialLocation = localStorage.getItem("location") || "Buenos Aires";
 
 export const LocationProvider = ({ children }) => {
   const [location, setLocation] = useState(initialLocation);
-  const [oldLocation, setOldLocation] = useState("");
   const [isReady, setIsReady] = useState(false);
   const [locationData, setLocationData] = useState({});
   const [error, setError] = useState({});
 
   const handleLocation = (currentLocation) => {
     setLocation(currentLocation);
-    setOldLocation(location);
   };
 
   useEffect(() => {
     setIsReady(false);
     let timeout;
 
-    fetch(api.concat(`q=${location}`))
-      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
-      .then((json) => {
+    const fetchingData = async () => {
+      try {
+        //Fetching API
+        const res = await fetch(api.concat(`q=${location}`));
+
+        if (!res.ok) throw new Error(res);
+
+        const jsonData = await res.json();
+
+        //Set states
         localStorage.setItem("location", location);
-        setLocationData(json);
+        setLocationData(jsonData);
         setIsReady(true);
-      })
-      .catch((err) => {
-        setOldLocation(location);
+      } catch (err) {
         setIsReady(true);
         setError({
           status: err.status,
@@ -44,7 +47,10 @@ export const LocationProvider = ({ children }) => {
         timeout = setTimeout(() => {
           setError({});
         }, 5000);
-      });
+      }
+    };
+
+    fetchingData();
 
     return () => {
       clearTimeout(timeout);
