@@ -13,7 +13,7 @@ export function MainData() {
       <Header />
       <BackgroundClouds />
       <Skeleton className="w-[128px] h-[128px] rounded-[100%]">
-        <img src={current?.condition.icon} className="w-40" alt="light-icon" />
+        <img src={current?.condition.icon} className="w-32" alt="light-icon" />
       </Skeleton>
       <div className="mt-4 text-white-faint lg:mt-10">
         <Skeleton className="py-10 rounded-lg w-[250px]">
@@ -36,7 +36,7 @@ export function MainData() {
           </Skeleton>
           <Skeleton className="">
             <p
-              className={`flex gap-x-2 justify-center mt-4 font-bold 
+              className={`flex gap-x-2 justify-center flex-wrap mt-4 font-bold 
             }`}
             >
               <img
